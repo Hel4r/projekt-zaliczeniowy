@@ -1,0 +1,94 @@
+Projekt z metod numerycznych dla równań różniczkowych zwyczajnych - opis wymagań
+1. Wymagania - wersja jednoosobowa:
+ 
+(a) Wybrać jeden schemat: jednokrokowy (Rungego-Kutty) albo liniowy schemat wielokrokowy (z zastrzeżeniem, że nie może to być schemat Eulera otwarty ani zamknięty).
+ 
+(b) Wyznaczyć teoretyczny rząd wybranego schematu (bezpośrednio lub w oparciu o odpowiednie własności, twierdzenia, wykład czy literaturę).
+ 
+(c) Wyznaczyć obszar absolutnej stabilności wybranego schematu (zilustrować rysunkiem, wskazać odpowiedni warunek, podać postać funkcji stabilności, uzasadnić A-stabilność o ile dotyczy).
+ 
+(d) Wybrać problem początkowy. Może to być równanie nieliniowe, układ równań. Nie może to być równanie liniowe (rozumiane w sensie równań różniczkowych zwyczajnych), czyli niedopuszczalne jest w szczególności równanie testowe oraz problem Prothero-Robinsona.
+ 
+(e) Zastosować wybrany wcześniej schemat do wybranego problemu, wyniki porównać z rozwiązaniem dokładnym (jeżeli jest znane) lub z rozwiązaniem referencyjnym (można je uzyskać za pomocą NDSolve w Mathematice, w Pythonie pewnie też coś się znajdzie, w R jest pakiet deSolve) np. na wykresie.
+ 
+(f) Używając tego samego równania wyznaczyć numeryczny rząd wybranych schematów metodą połowienia kroku. Wyniki przedstawić w formie tabeli i wykresu „loglog plot” z odpowiednią prostą odpowiadającą rzędowi teoretycznemu.
+ 
+(g) Wybrać układ dwóch (lub więcej) równań liniowych jednorodnych, którego macierz ma wartości własne o częściach rzeczywistych ujemnych (np. dwie rzeczywiste, ujemne wartości własne spełniają ten warunek). Przeprowadzić obliczenia za pomocą wybranego schematu z krokiem należącym, granicznym oraz nienależącym do obszaru absolutnej stabilności danego schematu (jak w 3-cim zadaniu numerycznym). Zilustrować na wykresie stabilność lub jej brak w tych trzech przypadkach. Uwaga: warunek początkowy dla tego układu nie może być trywialny (tzn. różny od punktu (0,0)). W przypadku wybrania schematu A-stabilnego obliczenia te wykonać schematem otwartym np. Heuna
+ 
+(h) Elementy podwyższające ”jakość” projektu:
+ 
+i. Użycie schematu uwikłanego.
+ 
+ii. Układ równań nieliniowych.
+ 
+iii. Wybrany problem początkowy może być modelem zjawiska (przyrodniczego, technicznego, medycznego, ekonomicznego), więc krótki opis byłby miłym dodatkiem. Można też spróbować zinterpretować wyniki obliczeń.
+ 
+iv. O ile możliwe, wyznaczenie stałej Lipschitza i oszacowanie przedziału, na którym istnieje rozwiązanie (zadanie może być w niektórych przypadkach trywialne, ale w innych mało wykonalne)
+ 
+v. sensowna animacja
+ 
+vi. inwencja własna
+ 
+2. Wymagania - wersja dwuosobowa
+ 
+(a) Wykonanie obliczeń dla obu rodzajów schematów (RK+LMM)
+ 
+3. Weryfikacja i sztuczna inteligencja
+ 
+(a) Przewiduję krótką (lub dłuższą) rozmowę na temat projektu.
+ 
+(b) Projekt wykonany przez SI/AI/ChatGPT jest niedopuszczalny w zakresie merytorycznym i implementacyjnym. W szczególności tłumaczenie w stylu ”przepisz mi projekt/kod żeby wyglądał lepiej i dlatego wygląda jak wygenerowany przez SI” jest słabe.
+ 
+(c) Użycie SI/AI/ChatGPT do wykonania elementów graficznych, edycyjnych, formatowania tabel jest dopuszczalne w umiarkowanym zakresie
+ 
+(d) Obce/zewnętrzne inspiracje należy wprost wskazać z podaniem źródła.
+ 
+4. Forma, w jakiej spodziewam się finalnego projektu:
+ 
+(a) Notebook w Pythonie, colabie, RMarkdown lub Mathematice zawierające część opisową i część numeryczną
+ 
+(b) Albo: numeryka w notebooku a opisy i wyniki w pdf
+ 
+(c) Wymagane są działające pliki stacjonarne (do celów dokumentacyjnych...)
+ 
+5. Na co zwrócić uwagę?:
+ 
+(a) Ogólny wygląd dokumentu, tj. podział na sekcje, opisy
+ 
+(b) Komentarze w kodzie programów, określające co robi procedura, jakie ma argumenty i co zwraca (nie koniecznie rozmiarów epopei, ale jakieś minimum powinno być)
+ 
+(c) ”zaśmiecenie” ostatecznej wersji jakimiś testowymi, niepotrzebnymi obliczeniami
+ 
+(d) Czytelność i poprawność implementacji
+ 
+(e) Efektywność implementacji (nie wymagam zoptymalizowania każdego elementu kodu, jednak należy zwrócić uwagę, czy program nie liczy dużej ilości zbędnych wartości lub czy jakieś obliczenia się nie dublują)
+ 
+(f) Pewna estetyka (ale też żeby nie było przerostu formy nad treścią) - warto wykorzystać tryb tekstowy tam gdzie się może przydać
+ 
+(g) Zadbać o opisy, połączyć elementy w całość (stąd część opisowa)
+ 
+(h) Tabele, rysunki, wykresy powinny być jakoś opisane, mieć legendy...
+ 
+(i) Kod powinien działać bez dodatkowych akrobacji/ingerencji. W razie potrzeby rozbić na większą ilość plików/podzadań
+ 
+6. Trochę ogólnych uwag/wskazówek
+ 
+(a) W razie problemów, wątpliwości wskazany jest kontakt. Także w przypadku wątpliwości, czy wybrane schematy i problem początkowy są „odpowiednie”.
+ 
+(b) Jeden z popularnych schematów wielokrokowych ma pusty obszar absolutnej stabilności (leap frog). Może lepiej go nie używać.
+ 
+(c) Może się zdarzyć, że wybrany schemat „nie nadaje się” do wybranego zagadnienia. W szczególności może się zdarzyć, że rząd numeryczny może istotnie odbiegać od rzędu teoretycznego schematu (jest spora szansa, że to błąd implementacji, ale może się zdarzyć nietypowe zachowanie, były przykłady równań na ćwiczeniach, które sprawiają problemy) – taki wynik też jest akceptowalny
+ 
+(d) Uważać na współczynniki schematu, czy są dobrze przepisane, z dobrymi znakami itp.
+ 
+(e) Nie szaleć np. z ilością kroków w schemacie wielokrokowym. 3- czy 4- krokowy schemat w zupełności wystarczy.
+ 
+(f) Wszystkie zagadnienia były omawiane na ćwiczeniach, zarówno jeśli chodzi o część teoretyczną, jak i przy implementacji w zadaniach numerycznych (co do LMM to akurat przyszłość, ale absolutną stabilność LMM wkrótce omówimy). Cały projekt to połączenie tych elementów w całość (za pomocą części opisowej)
+ 
+(g) W przypadku LMM trzeba obliczyć wartości początkowe. Zastosowanie wprost schematu Eulera jest błędem ze względu na jego niski rząd i prowadzi to problemów z osiągnięciem teoretycznego rzędu przez schemat LMM.
+ 
+(h) W przypadku poszukiwania rozwiązania referencyjnego za pomocą pakietu numerycznego należy zwrócić uwagę na jego dokładność. Odpowiednie funkcje często mają parametr odpowiadający za dokładność (np. pod nazwą atol i rtol jako absolutna i względna tolerancja błędów), przy czym domyślna wartość bywa ustawiona dość nisko (a do metody połowienia kroku przydałaby się wyższa dokładność).
+ 
+(i) W razie pytań/wątpliwości proszę o kontakt, jeśli trzeba to powyższy opis skorygujemy.
+
+ 
